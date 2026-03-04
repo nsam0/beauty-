@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy | Twinkle Makeover</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">Twinkle Makeover</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about us.html">About</a></li>
+      <li><a href="index.html#contact">Contact us</a></li>
+      <li><a href="book appointmet.html">Book Appointment</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="academy-hero">
+  <h1 class="section-title">Professional Beauty Academy</h1>
+  <p>Learn from experts and build your successful beauty career.</p>
+</section>
+
+<!-- FEE PACKAGES -->
+<section class="academy-packages">
+  <h2 class="section-title">Our Fee Packages</h2>
+
+  <div class="package-grid">
+
+    
+
+    <div class="package-card highlight">
+      <h3>Regular Package</h3>
+      <p class="price">₹30,000</p>
+      <ul>
+        <li>Makeup</li>
+        <li>Bridal Makeup</li>
+        <li>Hair Techniques</li>
+        <li>Live Practice Sessions</li>
+        <li>Certificate</li>
+      </ul>
+      <a href="#" class="gold-btn enroll-btn" data-plan="Regular Package">Enroll Now</a>
+
+    </div>
+
+    <div class="package-card">
+      <h3>Master Package</h3>
+      <p class="price">₹50,000</p>
+      <ul>
+        <li>Complete Bridal Mastery</li>
+        <li>Advanced Skin Treatments</li>
+        <li>Salon Management</li>
+        <li>Hair Techniques</li>
+        <li>Makeup</li>
+        <li>Business Setup Guidance</li>
+        <li>Premium Certification</li>
+      </ul>
+      <a href="#" class="gold-btn enroll-btn" data-plan="Master Package">Enroll Now</a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT YOU WILL LEARN -->
+<section class="academy-learn">
+  <h2 class="section-title">What You Will Learn</h2>
+
+  <div class="learn-grid">
+    <div class="learn-card">✔ Bridal Makeup Mastery</div>
+    <div class="learn-card">✔ HD & Airbrush Techniques</div>
+    <div class="learn-card">✔ Hair Styling & Extensions</div>
+    <div class="learn-card">✔ Skin Treatments</div>
+    <div class="learn-card">✔ Client Consultation Skills</div>
+    <div class="learn-card">✔ Business & Marketing Basics</div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="academy-why">
+  <h2 class="section-title">Why Choose Our Academy</h2>
+
+  <div class="why-grid">
+    <div class="why-card">✔ Experienced Trainers</div>
+    <div class="why-card">✔ Hands-On Practice</div>
+    <div class="why-card">✔ Industry Certification</div>
+    <div class="why-card">✔ Career Guidance</div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <h2 class="section-title">Our Students Reviews</h2>
+  <div class="review-grid">
+    <div class="review-card">
+      <p>“Learning at this beauty studio completely boosted my confidence and skills.”</p>
+      <div class="review-rating">★★★★★</div>
+    </div>
+    <div class="review-card">
+      <p>“The trainers are very supportive and explain every step clearly. We get proper hands-on practice, which really helps in building confidence.”</p>
+      <div class="review-rating">★★★★</div>
+    </div>
+    <div class="review-card">
+      <p>"“I completed my bridal makeup course here and had the chance to work on real clients. The trainers not only teach techniques but also guide you on professionalism and client handling"</p>
+      <div class="review-rating">★★★★☆</div>
+    </div>
+    <div class="review-card">
+      <p>“After completing the course, I received proper guidance on how to start my own work. They genuinely focus on helping students grow, not just finishing the syllabus.”</p>
+      <div class="review-rating">★★★★★</div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  © 2026 Twinkle Makeover. All rights reserved.
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
+<script src="main.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const buttons = document.querySelectorAll(".enroll-btn");
+
+  buttons.forEach(function(btn){
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+
+      const planName = this.getAttribute("data-plan");
+
+      const message = `
+Hello, I want to know more about the ${planName} at Twinkle Makeover Academy.
+Please share complete details.
+`;
+
+      const encodedMessage = encodeURIComponent(message);
+
+      window.open("https://wa.me/917500506393?text=" + encodedMessage, "_blank");
+    });
+  });
+
+});
+
+</script>

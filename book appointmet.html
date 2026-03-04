@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Appointment | Twinkle Makeover</title>
+
+<style>
+
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --gold:#D4AF37;
+  --black:#000;
+  --dark:#111;
+  --white:#fff;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:linear-gradient(to bottom,#000,#111);
+  color:white;
+}
+
+/* ===== HEADER ===== */
+
+.header{
+  width:100%;
+  padding:18px 8%;
+  background:#000;
+  border-bottom:1px solid rgba(212,175,55,0.2);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+}
+
+.logo{
+  font-size:22px;
+  color:var(--gold);
+  font-weight:600;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:white;
+  font-size:14px;
+  transition:0.3s;
+}
+
+nav ul li a:hover{
+  color:var(--gold);
+}
+
+/* ===== MOBILE MENU ===== */
+
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:25px;
+  height:2px;
+  background:var(--gold);
+}
+
+@media(max-width:768px){
+
+  nav ul{
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#000;
+    flex-direction:column;
+    width:220px;
+    padding:20px;
+    display:none;
+    border-left:1px solid rgba(212,175,55,0.2);
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
+
+  nav ul li{
+    margin-bottom:15px;
+  }
+}
+
+/* ===== FORM SECTION ===== */
+
+.appointment-section{
+  margin-top:120px;
+  padding:40px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.form-box{
+  background:#111;
+  padding:40px;
+  border-radius:10px;
+  width:100%;
+  max-width:500px;
+  box-shadow:0 0 40px rgba(212,175,55,0.15);
+  border:1px solid rgba(212,175,55,0.2);
+}
+
+.form-box h2{
+  text-align:center;
+  margin-bottom:30px;
+  color:var(--gold);
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  margin-bottom:8px;
+  font-size:14px;
+  color:var(--gold);
+}
+
+input,select,textarea{
+  width:100%;
+  padding:10px;
+  background:#000;
+  border:1px solid rgba(212,175,55,0.3);
+  color:white;
+  border-radius:4px;
+  outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:var(--gold);
+}
+
+.book-btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  background:var(--gold);
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.book-btn:hover{
+  box-shadow:0 0 20px rgba(212,175,55,0.7);
+  transform:scale(1.03);
+}
+
+.error{
+  color:red;
+  font-size:13px;
+  margin-top:5px;
+}
+
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">Twinkle Makeover</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about us.html">About</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="index.html#contact">Contact us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="appointment-section">
+  <div class="form-box">
+    <h2>Book Appointment</h2>
+
+    <form id="appointmentForm">
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="name">
+        <div class="error" id="nameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" id="phone">
+        <div class="error" id="phoneError"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Select Service</label>
+        <select id="service">
+          <option value="">Choose Service</option>
+          <option>HD Bridal Makeup</option>
+          <option>Airbrush Makeup</option>
+          <option>Engagement Makeup</option>
+          <option>Reception Makeup</option>
+          <option>Bridal Makeup</option>
+          <option>Bridal Draping</option>
+          <option>HairCut & Styling</option>
+          <option>Hair Coloring</option>
+          <option>Hair Smoothening</option>
+          <option>Hair Rebonding</option>
+          <option>Keratin Treatment</option>
+          <option>Hair Spa</option>
+          <option>Gold Facial</option>
+          <option>Diamond Facial</option>
+          <option>Hydra Facial</option>
+          <option>Anti-Aging Treatment</option>
+          <option>Clean-Up</option>
+          <option>Skin Polishing</option>
+          <option>Manicure</option>
+          <option>Pedicure</option>
+          <option>Nail Extensions</option>
+          <option>Gel Polish</option>
+          <option>Nail Art Design</option>
+          <option>Foot Spa</option>
+          </select>
+        <div class="error" id="serviceError"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Select Date</label>
+        <input type="date" id="date">
+        <div class="error" id="dateError"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Select Time</label>
+        <input type="time" id="time">
+        <div class="error" id="timeError"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Additional Details</label>
+        <textarea id="details" rows="3"></textarea>
+      </div>
+
+      <button type="submit" class="book-btn">BOOK NOW</button>
+
+    </form>
+  </div>
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  /* ===== MOBILE MENU ===== */
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  if(toggle){
+    toggle.addEventListener("click", function(){
+      navLinks.classList.toggle("active");
+    });
+  }
+
+  /* ===== FORM VALIDATION ===== */
+  const form = document.getElementById("appointmentForm");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let isValid = true;
+
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let service = document.getElementById("service").value;
+    let date = document.getElementById("date").value;
+    let time = document.getElementById("time").value;
+    let details = document.getElementById("details").value.trim();
+
+    document.querySelectorAll(".error").forEach(el=>el.innerText="");
+
+    if(name.length < 3){
+      document.getElementById("nameError").innerText="Enter valid name";
+      isValid=false;
+    }
+
+    if(!/^[0-9]{10}$/.test(phone)){
+      document.getElementById("phoneError").innerText="Enter valid 10 digit phone";
+      isValid=false;
+    }
+
+    if(service===""){
+      document.getElementById("serviceError").innerText="Select a service";
+      isValid=false;
+    }
+
+    let today = new Date().toISOString().split("T")[0];
+    if(date==="" || date < today){
+      document.getElementById("dateError").innerText="Select valid future date";
+      isValid=false;
+    }
+
+    if(time===""){
+      document.getElementById("timeError").innerText="Select time";
+      isValid=false;
+    }
+
+    if(!isValid) return;
+
+const message = `
+New Appointment Booking
+
+Name: ${name}
+Phone: ${phone}
+Service: ${service}
+Date: ${date}
+Time: ${time}
+Details: ${details}
+`;
+
+const encodedMessage = encodeURIComponent(message);
+
+window.open("https://wa.me/917500506393?text=" + encodedMessage, "_blank");
+
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
